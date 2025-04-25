@@ -1,12 +1,14 @@
 import selenium.webdriver as webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
 def scrape_website(website):
     print("Launching chrome browser...")
     chrome_driver_path=r"C:\Users\rk186\OneDrive\Desktop\Ai web Scraper\chromedriver.exe"
     options=webdriver.ChromeOptions()
-    driver=webdriver.Chrome(service=Service(chrome_driver_path),options=options)
+    # driver=webdriver.Chrome(service=Service(chrome_driver_path),options=options)
+    driver=webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="120.0.6099.10900")).install()), options=options)
     try:
         driver.get(website)
         print("Page loaded...")
@@ -37,3 +39,4 @@ def split_dom_content(dom_content,max_lenght=6000):
     return [
         dom_content[i : i +max_lenght] for i in range(0,len(dom_content),max_lenght)
     ]
+    
