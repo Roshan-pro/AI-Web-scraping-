@@ -8,7 +8,7 @@ def scrape_website(website):
     chrome_driver_path=r"C:\Users\rk186\OneDrive\Desktop\Ai web Scraper\chromedriver.exe"
     options=webdriver.ChromeOptions()
     # driver=webdriver.Chrome(service=Service(chrome_driver_path),options=options)
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="120.0.6099.10900").install()), options=options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="114.0.5735.90").install()), options=options)
     try:
         driver.get(website)
         print("Page loaded...")
