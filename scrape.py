@@ -3,20 +3,46 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
+# def scrape_website(website):
+#     print("Launching chrome browser...")
+#     chrome_driver_path=r"C:\Users\rk186\OneDrive\Desktop\Ai web Scraper\chromedriver.exe"
+#     options=webdriver.ChromeOptions()
+#     # driver=webdriver.Chrome(service=Service(chrome_driver_path),options=options)
+#     driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="114.0.5735.90").install()), options=options)
+#     try:
+#         driver.get(website)
+#         print("Page loaded...")
+#         html=driver.page_source
+#         time.sleep(10)
+#         return html
+#     finally:
+#         driver.quit()
 def scrape_website(website):
-    print("Launching chrome browser...")
-    chrome_driver_path=r"C:\Users\rk186\OneDrive\Desktop\Ai web Scraper\chromedriver.exe"
-    options=webdriver.ChromeOptions()
-    # driver=webdriver.Chrome(service=Service(chrome_driver_path),options=options)
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="114.0.5735.90").install()), options=options)
+    print("Launching Chromium browser...")
+
+    # Set options for Chromium (headless mode)
+    chrome_options = Options()
+    chrome_options.binary_location = "/usr/bin/chromium-browser"  # Use Chromium on Streamlit Cloud
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    # Initialize the driver using webdriver-manager
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    
     try:
+        # Open the website
         driver.get(website)
         print("Page loaded...")
-        html=driver.page_source
-        time.sleep(10)
+        
+        # Get page source (HTML content)
+        html = driver.page_source
+        time.sleep(5)  # Optional wait time to let the page fully load
+        
         return html
+    
     finally:
-        driver.quit()
+        driver.quit()  
 
 def extract_boby_content(html_content):
     soup=BeautifulSoup(html_content,"html.parser")
