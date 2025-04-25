@@ -2,13 +2,6 @@ import streamlit as st
 from scrape import scrape_website,split_dom_content,clean_body_content,extract_boby_content
 from parse import parse_with_gemini
 import subprocess
-import streamlit as st
-
-try:
-    version = subprocess.check_output(['google-chrome', '--version']).decode('utf-8')
-    st.write(f"Chrome version: {version}")
-except Exception as e:
-    st.write(f"Could not get Chrome version: {e}")
 
 if "user_db" not in st.session_state:
     st.session_state.user_db = {}
