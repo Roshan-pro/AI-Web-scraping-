@@ -30,7 +30,7 @@ def scrape_website(website):
     chrome_options.add_argument("--disable-dev-shm-usage")
 
     # Initialize the driver using webdriver-manager
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="120.0.6099.109").install()), options=chrome_options)
     
     try:
         # Open the website
