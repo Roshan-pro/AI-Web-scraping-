@@ -1,6 +1,8 @@
 # AI Web Scraper for Data Science Students
 
 This project provides an AI-powered web scraper using **Google Generative AI (Gemini)** and **Selenium** for scraping web pages and extracting specific information based on a user’s description. The application is built with **Streamlit** for a user-friendly interface and **BeautifulSoup** for parsing the HTML content.
+## Demo
+![image](https://github.com/user-attachments/assets/5cd88179-f01d-4a7f-9ce9-e1a31aebcf87)
 
 ## Features
 
