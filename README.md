@@ -1,4 +1,4 @@
-# AI Web Scraper for Data Science Students(For use ----> https://mainpy-dzsom3h3ytafnvtl9rjufi.streamlit.app/)
+# AI Web Scraper for Data Science Students(For use: https://mainpy-dzsom3h3ytafnvtl9rjufi.streamlit.app/)
 
 This project provides an AI-powered web scraper using **Google Generative AI (Gemini)** and **Selenium** for scraping web pages and extracting specific information based on a user’s description. The application is built with **Streamlit** for a user-friendly interface and **BeautifulSoup** for parsing the HTML content.
 ## Demo
